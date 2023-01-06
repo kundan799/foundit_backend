@@ -11,11 +11,11 @@ app.use(cors())
 app.use(express.json());
 
 
-const {connection}=require("./config/db")
-const {userController}=require("./Routes/User.route")
-const {adminController}=require("./Routes/Admin.route")
-const {jobController}=require("./Routes/Job.route")
-const {crudController}=require("./Routes/AdminCrud.route")
+const {connection}=require("./config/db.js")
+const {userController}=require("./Routes/User.route.js")
+const {adminController}=require("./Routes/Admin.route.js")
+const {jobController}=require("./Routes/Job.route.js")
+const {crudController}=require("./Routes/AdminCrud.route.js")
 
 
 
