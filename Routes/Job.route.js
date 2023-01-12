@@ -27,10 +27,10 @@ jobController.get("/:id", async (req, res) => {
 
 })
 
-jobController.post("/:id/create", async (req, res) => {
-    const id = req.params.id
-    console.log(id)
-    const { image, job_title,salary, category, 
+jobController.post("/create", async (req, res) => {
+    // const id = req.body
+    // console.log(id)
+    const { id,image, job_title,salary, category, 
         company_name, city, state, country,
         viewed, applied,  job_description,
         job_type, industry, functions,

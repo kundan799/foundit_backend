@@ -22,7 +22,7 @@ const jobSchema = new mongoose.Schema({
     "education": { type: String, required: true },
     "post_date": { type: String, required: true },
     "company_description": { type: String, required: true },
-    "is_remote": { type: String, required: true },
+    "is_remote": { type: String, required:true},
     "has_expired": { type: String, required: true },
 })
 
