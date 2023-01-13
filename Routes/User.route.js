@@ -16,6 +16,7 @@ userController.get("/", async (req, res) => {
 
 })
 
+
 userController.post("/signup", async (req, res) => {
   const { email, password ,name,mobile,work_status} = req.body;
   const existing_user = await userModel.findOne({ email });
@@ -83,6 +84,40 @@ userController.post("/login", async (req, res) => {
       res.send({"Message":"User not found ..please login with correct credentials.."})
     }
 })
+
+//delete
+// userController.delete("/:id", async (req, res) => {
+//   const id = req.params._id;
+//   console.log(id)
+//   try {
+//       await userModel.deleteOne({ _id: id })
+//       res.send({ "Message": "User deleted successfully" })
+//   }
+//   catch (err) {
+//       console.log(err)
+//   }
+// })
+
+ // delete
+ userController.delete("/:id",async(req, res)=>{
+  try{
+  const deletedata = await userModel.findByIdAndDelete(req.params.id);
+  res.send(deletedata)
+  }catch(e){
+      res.send(e.message)
+  }
+});
+
+// patch
+userController.patch("/:id",async(req, res)=>{
+  try{
+    const  _id=req.params.id
+  const updatdata = await userModel.findByIdAndUpdate(_id,req.body,{new:true});
+  res.send(updatdata)
+  }catch(err){
+    res.status(400).send(e.message);
+  }
+});
 
 
 

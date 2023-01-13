@@ -67,5 +67,15 @@ jobController.delete("/:id", async (req, res) => {
         console.log(err)
     }
 })
+// patch
+jobController.patch("/:id",async(req, res)=>{
+    try{
+      const  _id=req.params.id
+    const updatdata = await jobModel.findByIdAndUpdate(_id,req.body,{new:true});
+    res.send(updatdata)
+    }catch(err){
+      res.status(400).send(e.message);
+    }
+  });
 
 module.exports = { jobController }
