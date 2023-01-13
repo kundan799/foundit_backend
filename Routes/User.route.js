@@ -4,6 +4,18 @@ const userController = Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
 
+
+//get
+userController.get("/", async (req, res) => {
+  console.log(req.query)
+  const query = req.query
+
+  const user = await userModel.find(query)
+
+  res.send(user)
+
+})
+
 userController.post("/signup", async (req, res) => {
   const { email, password ,name,mobile,work_status} = req.body;
   const existing_user = await userModel.findOne({ email });
